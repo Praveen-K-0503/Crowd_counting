@@ -1,0 +1,46 @@
+﻿
+> civic-platform@0.1.0 build
+> next build
+
+   Γû▓ Next.js 15.5.14
+
+   Creating an optimized production build ...
+node.exe : Failed to 
+compile.
+At C:\Program 
+Files\nodejs\npm.ps1:29 
+char:3
++   & $NODE_EXE 
+$NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (F  
+  ailed to compile.:Str   
+ ing) [], RemoteExcept    
+ion
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+
+./components/issue-map-boa
+rd.tsx
+Module not found: Package 
+path . is not exported 
+from package C:\Users\Prav
+een\Documents\New project\
+civic-platform\node_module
+s\react-map-gl (see 
+exports field in C:\Users\
+Praveen\Documents\New proj
+ect\civic-platform\node_mo
+dules\react-map-gl\package
+.json)
+
+https://nextjs.org/docs/me
+ssages/module-not-found
+
+
+> Build failed because of 
+webpack errors

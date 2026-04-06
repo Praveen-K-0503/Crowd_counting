@@ -1,0 +1,11 @@
+{
+  "image": "path-or-huggingface-image-object",
+  "label": "Roads and Transportation",
+  "metadata": {
+    "complaintCode": "CP-2026-000001",
+    "source": "citizen_upload",
+    "city": "Hyderabad",
+    "latitude": 17.385,
+    "longitude": 78.4867
+  }
+}

@@ -1,0 +1,67 @@
+
+> civic-platform@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.14
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.56.1:3000
+
+ ✓ Starting...
+ ✓ Ready in 7s
+ ○ Compiling / ...
+ ✓ Compiled / in 7.9s (639 modules)
+ GET / 200 in 13529ms
+ GET / 200 in 682ms
+ GET / 200 in 329ms
+ ✓ Compiled /middleware in 232ms (115 modules)
+ ○ Compiling /login ...
+ ✓ Compiled /login in 543ms (652 modules)
+ GET /login 200 in 766ms
+ ✓ Compiled /api/session/login in 342ms (673 modules)
+ POST /api/session/login 200 in 771ms
+ ✓ Compiled /complaints in 288ms (681 modules)
+ GET /complaints 200 in 687ms
+ GET /complaints 200 in 100ms
+ GET / 200 in 107ms
+ ✓ Compiled /report in 476ms (811 modules)
+ GET /report 200 in 788ms
+ GET /report 200 in 62ms
+ GET /complaints 200 in 135ms
+ GET /report 200 in 48ms
+ GET / 200 in 106ms
+ ○ Compiling /map ...
+ ✓ Compiled /map in 909ms (814 modules)
+ GET /map 200 in 1108ms
+ GET /complaints 200 in 80ms
+ GET /report 200 in 63ms
+ GET / 200 in 101ms
+ GET /report 200 in 48ms
+ GET / 200 in 68ms
+ GET /report 200 in 49ms
+ GET /complaints 200 in 78ms
+ GET /map 200 in 31ms
+ ○ Compiling /emergency ...
+ ✓ Compiled /emergency in 806ms (803 modules)
+ GET /emergency 200 in 1140ms
+ GET /emergency 200 in 64ms
+ GET /emergency 200 in 68ms
+ GET /emergency 200 in 39ms
+ GET /complaints 200 in 130ms
+ GET /report 200 in 59ms
+ GET / 200 in 89ms
+ GET / 200 in 77ms
+ GET /report 200 in 47ms
+ GET /complaints 200 in 91ms
+ GET / 200 in 79ms
+ GET /report 200 in 67ms
+ GET /emergency 200 in 77ms
+ GET /map 200 in 49ms
+ GET /complaints 200 in 111ms
+ GET /report 200 in 46ms
+ GET / 200 in 89ms
+ GET / 200 in 90ms
+ GET /report 200 in 51ms
+ GET /complaints 200 in 67ms
+ GET /report 200 in 53ms
+ GET /report 200 in 50ms
+[?25h

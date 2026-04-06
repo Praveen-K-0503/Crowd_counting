@@ -1,0 +1,5 @@
+
+> civicpulse-backend@0.1.0 dev
+> tsx watch src/server.ts
+
+CivicPulse backend listening on port 4000
