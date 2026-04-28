@@ -1,0 +1,28 @@
+# ── Core API framework ──────────────────────────────────────────
+fastapi
+uvicorn[standard]
+python-multipart
+
+# ── PyTorch CPU-only build (~200 MB vs ~800 MB for CUDA) ────────
+# This is essential for fitting in free-tier Docker containers
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision
+
+# ── Image / Video processing ────────────────────────────────────
+Pillow
+opencv-python-headless
+
+# ── Scientific computing ─────────────────────────────────────────
+numpy
+scipy
+scikit-learn
+
+# ── Database ORM ─────────────────────────────────────────────────
+sqlmodel
+
+# ── Misc utilities ───────────────────────────────────────────────
+easydict
+
+# ── HuggingFace Hub (for auto-downloading model weights) ─────────
+huggingface_hub
