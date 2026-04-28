@@ -114,6 +114,13 @@ def round_to_stride(value, stride=128):
 
 def process_frame(img_raw, model, device, transform, threshold, max_dim=3840, magnification=1.5, patch_size=512, nms_radius=8.0, batch_size=8, patch_overlap=0.25, inference_strategy="Auto", full_frame_max_dim=1800, fencing_poly=None):
     orig_width, orig_height = img_raw.size
+    
+    # CPU optimizations to prevent >60s timeouts on HF Spaces free tier
+    if device.type == 'cpu':
+        max_dim = min(max_dim, 1280)
+        magnification = min(magnification, 1.0)
+        inference_strategy = "Single Pass"
+        
     work_width = int(orig_width * magnification)
     work_height = int(orig_height * magnification)
     
