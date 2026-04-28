@@ -62,3 +62,10 @@ weights/
 
 # Datasets (usually large)
 # crowd_datasets/
+
+# Visualization / demo binary images (HF Spaces requires Xet storage for binaries)
+vis/*.png
+vis/*.jpg
+vis/*.jpeg
+frontend/src/assets/*.png
+frontend/src/assets/*.jpg
