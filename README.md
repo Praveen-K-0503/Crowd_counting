@@ -1,7 +1,7 @@
 ---
 title: Civic Pulse — Crowd Counting
 emoji: 👥
-colorFrom: teal
+colorFrom: blue
 colorTo: indigo
 sdk: docker
 pinned: false
