@@ -10,7 +10,7 @@ import os
 
 HF_WEIGHTS_REPO = os.environ.get(
     "HF_WEIGHTS_REPO",
-    "YOUR_HF_USERNAME/crowd-counting-weights",
+    "praveendatascience/crowd-counting-weights",
 )
 WEIGHTS_FILENAME = "SHTechA.pth"
 WEIGHTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "weights")
