@@ -20,6 +20,7 @@ scikit-learn
 
 # ── Database ORM ─────────────────────────────────────────────────
 sqlmodel
+psycopg2-binary
 
 # ── Misc utilities ───────────────────────────────────────────────
 easydict

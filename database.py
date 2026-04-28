@@ -8,7 +8,11 @@ class FlightReport(SQLModel, table=True):
     duration_frames: int
     chaos_anomalies: int
 
-engine = create_engine("sqlite:///crowd_data.db")
+import os
+
+DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///crowd_data.db")
+
+engine = create_engine(DATABASE_URL)
 
 def init_db():
     SQLModel.metadata.create_all(engine)
