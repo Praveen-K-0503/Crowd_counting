@@ -524,6 +524,22 @@ async def process_image_api(
         _, buffer = cv2.imencode('.jpg', img_bgr)
         encoded_img = base64.b64encode(buffer).decode('utf-8')
         
+        # Save to database
+        try:
+            with Session(engine) as session:
+                report = FlightReport(
+                    filename=file.filename,
+                    max_capacity_breached=False, # We don't have capacity from frontend here natively, but let's record the scan
+                    peak_crowd_count=count,
+                    duration_frames=1,
+                    chaos_anomalies=0
+                )
+                session.add(report)
+                session.commit()
+        except Exception as e:
+            print(f"Failed to save to db: {e}")
+            pass
+        
         return {
             "count": count, "elapsed": elapsed,
             "usedBatchSize": used_batch_size, "imageB64": encoded_img
