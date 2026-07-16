@@ -1,0 +1,30 @@
+{
+  "img_1 (1024x683)": {
+    "Performance (Fast)": {
+      "mean_latency_ms": 250.62,
+      "std_latency_ms": 8.74,
+      "throughput_fps": 3.99,
+      "peak_vram_mb": 248.93
+    },
+    "Balanced": {
+      "mean_latency_ms": 276.03,
+      "std_latency_ms": 4.01,
+      "throughput_fps": 3.62,
+      "peak_vram_mb": 413.18
+    }
+  },
+  "img_2 (3840x2560)": {
+    "Performance (Fast)": {
+      "mean_latency_ms": 6698.66,
+      "std_latency_ms": 64.03,
+      "throughput_fps": 0.15,
+      "peak_vram_mb": 814.7
+    },
+    "Balanced": {
+      "mean_latency_ms": 15890.62,
+      "std_latency_ms": 114.52,
+      "throughput_fps": 0.06,
+      "peak_vram_mb": 814.7
+    }
+  }
+}
