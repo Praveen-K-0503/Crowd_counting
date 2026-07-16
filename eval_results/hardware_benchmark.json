@@ -1,0 +1,10 @@
+{
+  "device": "cuda",
+  "device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "trainable_parameters": 21579344,
+  "model_size_mb": 82.37,
+  "mean_latency_ms": 38.89,
+  "std_latency_ms": 52.8,
+  "throughput_fps": 25.72,
+  "peak_vram_mb": 278.38
+}
