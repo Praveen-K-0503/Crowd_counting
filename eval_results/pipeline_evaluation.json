@@ -1,0 +1,9 @@
+{
+  "precision": 0.9495,
+  "recall": 0.94,
+  "f1_score": 0.9447,
+  "mean_localization_error_px": 1.7494,
+  "tracking_drift_with_of": 20,
+  "tracking_drift_without_of": 295,
+  "chaos_detection_delay_frames": 0
+}
