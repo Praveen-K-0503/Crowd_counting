@@ -1,3 +1,3 @@
 image,gt_count,pred_count,abs_error,sq_error,precision_5px,recall_5px,matches_5px,fp_5px,fn_5px,precision_10px,recall_10px,matches_10px,fp_10px,fn_10px,precision_15px,recall_15px,matches_15px,fp_15px,fn_15px,precision_20px,recall_20px,matches_20px,fp_20px,fn_20px
-img_1.jpg,678,678,0,0,1.0,1.0,678,0,0,1.0,1.0,678,0,0,1.0,1.0,678,0,0,1.0,1.0,678,0,0
-img_2.jpg,1771,1771,0,0,1.0,1.0,1771,0,0,1.0,1.0,1771,0,0,1.0,1.0,1771,0,0,1.0,1.0,1771,0,0
+img_1.jpg,685,678,7,49,1.0,0.9898,678,0,7,1.0,0.9898,678,0,7,1.0,0.9898,678,0,7,1.0,0.9898,678,0,7
+img_2.jpg,1792,1771,21,441,1.0,0.9883,1771,0,21,1.0,0.9883,1771,0,21,1.0,0.9883,1771,0,21,1.0,0.9883,1771,0,21
