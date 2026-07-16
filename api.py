@@ -583,6 +583,7 @@ async def stream_video(websocket: WebSocket, file_id: str):
             await websocket.send_json({"status": "error", "message": f"Cannot open video file. Format may not be supported by OpenCV."})
             return
 
+        fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
         total_video_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)) or 1
         tracker = Tracker(max_distance=50.0, max_age=5)
 
@@ -611,13 +612,13 @@ async def stream_video(websocket: WebSocket, file_id: str):
                     )
 
                     if count > peak_crowd:      peak_crowd = count
-                    if count > capacity_limit:  capacity_breached = True
+                    if count >= capacity_limit: capacity_breached = True
 
                     img_bgr = draw_points(pil_img, raw_points, use_heatmap, use_clustering,
                                           use_motion_vecs, prev_raw_points)
                     prev_raw_points = raw_points[:]
 
-                    active_tracks, cumulative_unique, anomaly = tracker.update(img_bgr, raw_points)
+                    active_tracks, cumulative_unique, anomaly = tracker.update(img_bgr, raw_points, fps=fps, frame_skip=frame_skip)
                     total_unique = cumulative_unique
                     if anomaly:
                         total_anomalies += 1
@@ -625,8 +626,10 @@ async def stream_video(websocket: WebSocket, file_id: str):
                     # Trigger CloudWatch alarm telemetry asynchronously
                     asyncio.create_task(push_cloudwatch_metric(count, total_anomalies))
 
+                    # Normalized speed threshold check (35 pixels/frame limit converted to pixels/second)
+                    speed_limit_px_s = 35.0 / (frame_skip / fps)
                     for t in active_tracks:
-                        color = (11, 158, 245) if (anomaly and hasattr(t, 'velocity') and t.velocity > 35) else (0, 230, 184)
+                        color = (11, 158, 245) if (anomaly and hasattr(t, 'velocity') and t.velocity > speed_limit_px_s) else (0, 230, 184)
                         cv2.circle(img_bgr, (int(t.pt[0]), int(t.pt[1])), 5, (0, 0, 0), -1)
                         cv2.circle(img_bgr, (int(t.pt[0]), int(t.pt[1])), 4, color, -1)
 

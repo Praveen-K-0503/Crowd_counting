@@ -28,13 +28,16 @@ class Tracker:
         for i, t in enumerate(self.tracks):
             t.pt = pts_transformed[i]
 
-    def update(self, frame_bgr, detected_points):
+    def update(self, frame_bgr, detected_points, fps=30.0, frame_skip=3):
         """
         Updates standard tracking variables and detects chaos.
 
         Returns:
             tuple[list[PointTrack], int, bool]: active tracks, cumulative unique count, and anomaly flag.
         """
+        # Calculate time delta between processed frames
+        dt = frame_skip / fps if fps > 0 else 0.1
+
         # 1. Global motion compensation via Drone drift
         transform = self.motion_estimator.update(frame_bgr)
         self.apply_motion_compensation(transform)
@@ -72,8 +75,8 @@ class Tracker:
         
         for r, c in zip(row_ind, col_ind):
             if dist_matrix[r, c] <= self.max_distance:
-                # Update velocity (distance from last position)
-                self.tracks[r].velocity = dist_matrix[r, c]
+                # Update velocity (pixels per second instead of pixels per frame)
+                self.tracks[r].velocity = dist_matrix[r, c] / dt
                 self.tracks[r].pt = detected_points[c]
                 self.tracks[r].time_since_update = 0
                 assigned_tracks.add(r)
@@ -90,7 +93,9 @@ class Tracker:
         self.tracks = [t for t in self.tracks if t.time_since_update <= self.max_age]
         
         # 6. Chaos detection criteria: if > 5 tracks are moving anomalously rapidly
-        chaotic_count = sum(1 for t in self.tracks if t.velocity > self.max_distance * 0.7 and t.time_since_update == 0)
+        # Threshold: 70% of max_distance normalized to pixels/second
+        speed_threshold = (self.max_distance * 0.7) / dt
+        chaotic_count = sum(1 for t in self.tracks if t.velocity > speed_threshold and t.time_since_update == 0)
         anomaly = chaotic_count >= 5
         
         return self.tracks.copy(), self.next_id - 1, anomaly
